@@ -28,38 +28,35 @@ export default function PizzaModal({ visible, pizza, onClose }) {
         className="bg-white rounded-3xl w-full max-w-md overflow-hidden shadow-2xl slide-up relative"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Imagen de la Pizza */}
-        <div className="w-full h-64 md:h-80 bg-gray-100 overflow-hidden">
+        {/* Imagen de la Pizza Completa */}
+        <div className="w-full h-80 md:h-96 bg-white p-4 flex items-center justify-center">
           <img
             src={pizza.image}
             alt={pizza.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
         </div>
 
         {/* Contenido */}
-        <div className="p-8">
-          <h3 className="font-title text-3xl md:text-4xl text-burgundy mb-4">
+        <div className="p-8 text-center">
+          <h3 className="font-title text-4xl md:text-5xl text-burgundy mb-4">
             {pizza.name}
           </h3>
 
-          <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-8">
+          <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-6">
             {pizza.description}
           </p>
 
-          <button
-            onClick={onClose}
-            className="w-full bg-burgundy text-white font-bold py-5 px-8 rounded-2xl text-xl md:text-2xl hover:bg-burgundy-dark transition-colors shadow-lg cursor-pointer"
-          >
+          <p className="font-title text-5xl md:text-6xl text-burgundy font-bold mb-4">
             {pizza.price}
-          </button>
+          </p>
         </div>
       </div>
 
-      {/* Botón de Cerrar */}
+      {/* Botón de Cerrar Rojo */}
       <button
         onClick={onClose}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-black text-white text-2xl font-bold flex items-center justify-center hover:scale-110 transition-transform cursor-pointer z-10"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full bg-burgundy text-white text-4xl font-bold flex items-center justify-center hover:scale-110 transition-transform cursor-pointer z-10 shadow-xl border-4 border-white"
       >
         ×
       </button>

@@ -2,48 +2,50 @@ import React from 'react'
 
 export default function HomeScreen({ onNavigate }) {
   return (
-    <div className="min-h-screen">
-      {/* Sección Blanca Superior */}
-      <div className="bg-white min-h-[50vh] flex flex-col items-center justify-center px-6 pt-12 pb-8">
-        <h1 className="font-title text-5xl md:text-6xl text-black mb-4">
-          Pizza Hut
-        </h1>
-        <p className="text-gray-700 text-lg md:text-xl mb-8">
-          No One Outpizzas the Hut
-        </p>
-        <div className="w-full max-w-md">
-          <img 
-            src="/img/png-clipart-pizza-pizza.png" 
-            alt="Pizza" 
-            className="w-full h-auto object-cover"
-            style={{ maxHeight: '300px', objectPosition: 'top' }}
-          />
-        </div>
+    <div className="min-h-screen bg-pizza-texture relative">
+      {/* Header oscuro superior con ícono */}
+      <div className="w-full bg-burgundy-dark h-14 md:h-16 flex items-center justify-between px-4">
+        <img
+          src="/img/LOGO.png"
+          alt="Pizza Hut Mini Logo"
+          className="h-8 md:h-10 w-auto object-contain"
+        />
+        {/* Espacio vacío para mantener el layout o simplemente eliminar el icono */}
       </div>
 
-      {/* Sección Roja Inferior */}
-      <div className="bg-pizza-texture min-h-[50vh] flex flex-col items-center justify-center px-6 py-12 relative">
-        <h2 className="font-title text-6xl md:text-7xl text-white mb-12">
-          Menu
-        </h2>
-        
-        <div className="w-full max-w-sm space-y-4">
+      {/* Contenido principal centrado */}
+      <div className="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center px-6 py-12">
+        {/* Logo de Pizza Hut */}
+        <div className="mb-16">
+          <img
+            src="/img/logo 2.png"
+            alt="Pizza Hut"
+            className="w-auto h-56 md:h-72 mx-auto"
+            onError={(e) => {
+              e.target.src = '/img/logo 2.png';
+            }}
+          />
+        </div>
+
+        {/* Botones tipo píldora */}
+        <div className="w-full max-w-sm space-y-6">
           <button
             onClick={() => onNavigate('pizzas')}
-            className="w-full bg-white text-burgundy font-bold py-6 px-8 rounded-full text-xl md:text-2xl hover:bg-gray-100 transition-colors shadow-lg cursor-pointer"
+            className="w-full bg-white text-burgundy font-bold py-6 px-8 rounded-full text-xl md:text-2xl hover:bg-gray-100 transition-colors shadow-lg cursor-pointer uppercase tracking-wide"
+            style={{ fontFamily: 'Roboto, sans-serif' }}
           >
-            Comida
+            COMIDA
           </button>
 
           <button
             onClick={() => alert('Próximamente: Bebestibles')}
-            className="w-full bg-white text-burgundy font-bold py-6 px-8 rounded-full text-xl md:text-2xl hover:bg-gray-100 transition-colors shadow-lg cursor-pointer"
+            className="w-full bg-white text-burgundy font-bold py-6 px-8 rounded-full text-xl md:text-2xl hover:bg-gray-100 transition-colors shadow-lg cursor-pointer uppercase tracking-wide"
+            style={{ fontFamily: 'Roboto, sans-serif' }}
           >
-            Bebestibles
+            BEBESTIBLE
           </button>
         </div>
       </div>
     </div>
   )
 }
-
