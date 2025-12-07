@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-burgundy: #8B1E25;
+  --color-burgundy-dark: #6B1519;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+  background-color: var(--color-burgundy);
+}
+
+.font-title {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* Textura de fondo con pizza slices */
+.bg-pizza-texture {
+  background-color: var(--color-burgundy);
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(107, 21, 25, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(107, 21, 25, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(107, 21, 25, 0.2) 0%, transparent 60%);
+  position: relative;
+}
+
+.bg-pizza-texture::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 10 L70 50 L50 90 L30 50 Z' fill='none' stroke='%236B1519' stroke-width='0.5' opacity='0.1'/%3E%3C/svg%3E");
+  background-size: 150px 150px;
+  background-position: 0 0;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
